@@ -1,0 +1,122 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "name": "Kuldeep",
+      "address": "32 Panchamrutpark , Vadoadara",
+      "email": "kuldeeeppadariya11@gmail.com",
+      "services": "Monthly",
+      "mobile": 6874647565,
+      "joiningDate": "2023-01-01",
+      "endDate": "2023-02-28",
+      "lastname": "Padariya"
+    },
+    {
+      "id": 4,
+      "name": "Ravi",
+      "address": "Valsad",
+      "email": "ravikumavat43@gmail.com",
+      "services": "Annual",
+      "mobile": 6578875498,
+      "joiningDate": "2023-12-04",
+      "endDate": "2024-01-04",
+      "lastname": "Kumavat"
+    },
+    {
+      "id": 5,
+      "name": "Sumit11",
+      "address": "B-6 room.88 police line gamdi, Anand",
+      "email": "sumitjadav2525@gmail.com",
+      "services": "Monthly",
+      "mobile": 9081109040,
+      "joiningDate": "2023-12-01",
+      "endDate": "2023-12-31",
+      "lastname": "Jadhav"
+    }
+  ],
+  "signup": [
+    {
+      "name": "arayan hotel 1",
+      "email": "sibashish@abc.com",
+      "mobile": 8769145511,
+      "password": "password@123",
+      "id": 1
+    },
+    {
+      "name": "Selection",
+      "email": "selection@abc.com",
+      "mobile": 3164631649,
+      "password": "passowrd@123",
+      "id": 2
+    },
+    {
+      "name": "sumit",
+      "email": "sumitjadhav2525@gmail.com",
+      "mobile": 9081109040,
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "rama",
+      "email": "rama11@gmail.com",
+      "mobile": 9081109040,
+      "password": "123",
+      "id": 4
+    }
+  ],
+  "trainer": [
+    {
+      "id": 1,
+      "name": "Vikas",
+      "address": "32 Vatika Park, Vadodara",
+      "email": "vikas11@gmail.com",
+      "gender": "Male",
+      "services": "4 Years",
+      "mobile": 9857544245,
+      "joiningDate": "2023-12-01",
+      "shifttime": "Evening",
+      "lastname": "Patel"
+    },
+    {
+      "id": 2,
+      "name": "Lakshit",
+      "address": "Nadiyad",
+      "email": "lakshit55@gmail.com",
+      "gender": "Male",
+      "services": "3 Years",
+      "mobile": 4788755488,
+      "joiningDate": "2023-05-01",
+      "shifttime": "Morning",
+      "lastname": "bhatt"
+    },
+    {
+      "id": 3,
+      "name": "Nikunj",
+      "address": "Vasad",
+      "email": "nikr33@gmail.com",
+      "gender": "Male",
+      "services": "1 Year",
+      "mobile": 98874874232,
+      "joiningDate": "2023-06-15",
+      "shifttime": "Evening",
+      "lastname": "Patel"
+    }
+  ],
+  "enquirydata": [
+    {
+      "id": 3,
+      "name": "Sumit",
+      "address": "B-6 room.88 police line gamdi, Anand",
+      "email": "sumitjadav2525@gmail.com",
+      "services": "Price Related",
+      "mobile": 9081109040,
+      "joiningDate": "2023-12-10",
+      "endDate": null,
+      "lastname": null
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

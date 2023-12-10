@@ -1,0 +1,168 @@
+<!-- <p>addtrainer works!</p> -->
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <h2>Trainer Master</h2>
+      <div class="d-flex">
+        <a href="/home" class="btn btn-primary py-3 px-5">Home</a>
+        <button (click)="clickAddResto()" class="btn btn-success" type="button" data-bs-toggle="modal" >Add Trainer</button>
+       <button routerLink="/login" style="margin-left: 5px;" class="btn btn-danger" type="button" data-bs-toggle="modal">Log Out</button>
+     </div>
+    </div>
+ </nav>
+ <!-- <div class="p-5 mb-4 bg-light rounded-3">
+     <div class="container-fluid py-5">
+       <h1 class="display-5 fw-bold">Gym Records Management System</h1>
+       <p class="col-md-8 fs-4"> You can save Records of Gym</p>
+       <a class="btn btn-primary btn-lg" type="button" target="_blank" href="https://github.com/sibashish99/Restaurent_Application">Source Code</a>
+     </div>
+ </div> -->
+ <table class="table mt-4">
+     <thead>
+         <tr>
+             <th scope="col">Trainer Id</th>
+             <th scope="col">Trainer Name</th>
+             <th scope="col">Trainer Email</th> 
+             <th scope="col">Gender</th> 
+             <th scope="col">Trainer Address</th> 
+             <th scope="col">Trainer Phone</th>
+             <th scope="col">Trainer Experience</th>
+             <th scope="col">joining Date</th>
+             <th scope="col">Shift Time</th>
+             <th scope="col">Action</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr *ngFor="let data of allRestaurentData">
+             <td>{{data.id}}</td>
+             <td>{{data.name}}</td>
+             <td>{{data.email}}</td>
+             <td>{{data.gender}}</td>
+             <td>{{data.address}}</td>
+             <td>{{data.mobile}}</td>
+             <td>{{data.services}}</td>
+             <td>{{data.joiningDate}}</td>
+             <td>{{data.shifttime}}</td>
+
+             <td>
+                 <button (click)="onEditResto(data)" class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button> &nbsp;
+                 <button (click)="deleteResto(data.id)" class="btn btn-danger" >Delete</button> &nbsp;
+                 <button (click)="viewprofile(data)" class="btn btn-success" type="button"
+          data-bs-toggle="modal">View Profile</button>
+                 <!-- <button>ViewProfile</button> -->
+             </td>
+         </tr>
+     </tbody>
+ </table>
+ 
+ 
+   
+   <!-- Modal -->
+
+ 
+   <div *ngIf="addmemberform">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Trainer  Records</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeflag()"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input type="text" class="form-control" formControlName="name" placeholder="Trainer Name" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Last  Name</label>
+                  <input type="text" class="form-control" formControlName="lastname" placeholder="Trainer lastName" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label  class="form-label">Email</label>
+                  <input type="email" class="form-control" formControlName="email"  placeholder="abcd@gmail.com" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label  class="form-label">Gender</label>
+                  <input type="email" class="form-control" formControlName="gender"  placeholder="Male or Female" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" formControlName="address"  placeholder="Abc road , near abc , pin: 12546" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Mobile</label>
+                    <input type="number" class="form-control" formControlName="mobile"  placeholder="+91-1234567890" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Trainer Experience</label>
+                    <input type="text" class="form-control" formControlName="services"  placeholder="Annual , Monthly" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label  class="form-label">Join Date</label>
+                  <input type="date" class="form-control" formControlName="joiningDate"  placeholder="Date of Joining" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label  class="form-label">Shift Time</label>
+                <input type="text" class="form-control" formControlName="shifttime"  placeholder="Morning or Evening" id="exampleInputPassword1">
+            </div>
+              
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="clear" (click)="closeflag()">Close</button>
+          <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="postTrainer()">Add Trainer</button>
+          <button *ngIf="showBtn" type="button" class="btn btn-primary" (click)="updateTrainer()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Profile  -->
+<div *ngIf="viewprofileflag">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeflag()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Member Name"
+              id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="abcd@gmail.com"
+              id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mobile</label>
+            <input type="number" class="form-control" formControlName="mobile" placeholder="+91-1234567890"
+              id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Join Date</label>
+            <input type="date" class="form-control" formControlName="joiningDate" placeholder="Date of Joining"
+              id="exampleInputPassword1">
+          </div>
+       
+          <!-- <button routerLink="/test">Create Diet plan</button> -->
+          <button (click)="closeflag()" class="btn btn-success" type="button" data-bs-toggle="modal">Close</button>
+
+          <!-- <button onclick="window.print()">Print this page</button> -->
+
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="clear" (click)="closeflag()">Close</button>
+          <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="addRestaurent()">Add Details</button>
+          <button *ngIf="showBtn" type="button" class="btn btn-primary" (click)="updateResto()">Update</button>
+        </div> -->
+    </div>
+  </div>
+</div>
